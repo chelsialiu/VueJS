@@ -10,22 +10,71 @@
         <!-- <link rel="stylesheet" href=""> -->
     </head>
     <body>
+        <h1 style='text-align: center;'>Chelsia's VueJS Project</h1>
         <div id="app">
-            <h1 v-once>{{ title }}</h1>
-            <input type="text" v-on:input="changeTitle">
-            <p>{{ sayHello() }} -- <a v-bind:href='link'>Google</a></p>
+            <p>SIMPLE VUE.JS APPLICATION</p>
+            The title will change according to what you type into the input box:
+            <div>
+                <br>
+                <input type="text" v-on:input="changeTitle">
+                <p>Title: {{ title }}</p>
+            </div>
             <hr>
+
+            <p>ACCESSING DATA IN THE VUE INSTANCE</p>
+            We can access and display data from our Vue instance in our HTML code:
+            <p>{{ sayHello() }}</p>
+            <hr>
+
+            <p>BINDING TO ATTRIBUTES</p>
+            We can use the directive <i>v-bind</i> to bind data from our Vue instance to the HTML attributes:
+            <p><a v-bind:href='link' target='_blank'>Google</a></p>
+            <hr>
+
+            <p>DISABLE RE-RENDERING</p>
+            We can use the directive <i>v-once</i> to display the original value of a Vue instance attribute instead of the overwritten value (which might have occurred previously):
+            <p v-once>This is the original title: {{ title }}</p>
+            <hr>
+
+            <p>HOW TO OUTPUT RAW HTML</p>
+            We can use the directive <i>v-html</i> to say render HTML code and not escape it: 
             <p v-html='finishedLink'></p>
             <hr>
-            <button v-on:click='increaseCounter'>Click me</button> <!--v-on has access to all default DOM events, not only click-->
-            <p>{{ counter }}</p>
+
+            <p>LISTENING TO EVENTS</p>
+            We can use the directive <i>v-on</i> to listen to events and respond in a certain way. This "Click Me" button utilitizes <i>v-on:click</i>, which is similar to  JS onclick function:
+            <div>
+                <br>
+                <button v-on:click='increaseCounter'>Click me</button> <!--v-on has access to all default DOM events, not only click-->
+                <p>{{ counter }}</p>
+            </div>
             <hr>
+
+            <p>GETTING EVENT DATA FROM THE EVENT OBJECT</p>
+            <p>We can access and use event data from the event object. Here, we are accessing the updateCoordinates function and displaying the coordinates of the computer mouse on the screen.</p>
+            <p>We can also modify and event (such as stopping propagation), and change certain attributes. In this case, we create a "Dead Spot" where the coordinates stop updating:</p>
             <p v-on:mousemove='updateCoordinates'>
                 Coordinates: {{ x }} / {{ y }}
                 - <span v-on:mousemove.stop=''>DEAD SPOT</span>
             </p>
             <hr>
+
+            <p>KEYBOARD EVENTS</p>
+            We can add key modifiers for v-on when listening for key events.
+            <p>By using <i>v-on:keyup.enter.space</i>, an alert box will pop up if you hit "Enter" or "Space" on the keyboard:</p>
             <input type='text' v-on:keyup.enter.space='alertMe'> <!--Alert will pop up when 'Enter' or 'Space' are hit on the keyboard-->
+            <hr>
+
+            <p>USING TWO-WAY BINDING</p>
+            As you type something into the input box, the data will also update and display:
+            <div>
+                <br>
+                <input type='text' v-model='name'>
+                <p>Data text: {{ name }}</p>
+            </div>
+            <hr>
+
+
         </div>
     </body>
     <script>
@@ -33,19 +82,21 @@
             el: '#app',
             data: {
                 title: "Hello World!",
+                sayHelloTitle: "",
                 link: "http://google.com",
-                finishedLink: "<a href='http://google.com'>Google</a>",
+                finishedLink: "<a href='http://google.com' target='_blank'>Google</a>",
                 counter: 0,
                 x: 0,
-                y: 0
+                y: 0,
+                name: 'Chelsia'
             },
             methods: {
                 changeTitle: function(event) {
                     this.title = event.target.value;
                 },
                 sayHello: function() {
-                    this.title = "Hello!";
-                    return this.title;
+                    this.sayHelloTitle = "This text is from my 'sayHello function' inside of my Vue instance!";
+                    return this.sayHelloTitle;
                 },
                 increaseCounter: function() {
                     this.counter++;
