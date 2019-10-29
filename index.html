@@ -20,36 +20,44 @@
             <button v-on:click='increaseCounter'>Click me</button> <!--v-on has access to all default DOM events, not only click-->
             <p>{{ counter }}</p>
             <hr>
-            <p v-on:mousemove='updateCoordinates'>Coordinates: {{ x }} / {{ y }}</p>
+            <p v-on:mousemove='updateCoordinates'>
+                Coordinates: {{ x }} / {{ y }}
+                - <span v-on:mousemove.stop=''>DEAD SPOT</span>
+            </p>
+            <hr>
+            <input type='text' v-on:keyup.enter.space='alertMe'> <!--Alert will pop up when 'Enter' or 'Space' are hit on the keyboard-->
         </div>
-        <script>
-            new Vue ({
-                el: '#app',
-                data: {
-                    title: "Hello World!",
-                    link: "http://google.com",
-                    finishedLink: "<a href='http://google.com'>Google</a>",
-                    counter: 0,
-                    x: 0,
-                    y: 0
-                },
-                methods: {
-                    changeTitle: function(event) {
-                        this.title = event.target.value;
-                    },
-                    sayHello: function() {
-                        this.title = "Hello!";
-                        return this.title;
-                    },
-                    increaseCounter: function() {
-                        this.counter++;
-                    },
-                    updateCoordinates: function(event) {
-                        this.x = event.clientX;
-                        this.y = event.clientY;
-                    }
-                }
-            });
-        </script>
     </body>
+    <script>
+        new Vue ({
+            el: '#app',
+            data: {
+                title: "Hello World!",
+                link: "http://google.com",
+                finishedLink: "<a href='http://google.com'>Google</a>",
+                counter: 0,
+                x: 0,
+                y: 0
+            },
+            methods: {
+                changeTitle: function(event) {
+                    this.title = event.target.value;
+                },
+                sayHello: function() {
+                    this.title = "Hello!";
+                    return this.title;
+                },
+                increaseCounter: function() {
+                    this.counter++;
+                },
+                updateCoordinates: function(event) {
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                alertMe: function() {
+                    alert('ALERT');
+                }
+            }
+        });
+    </script>
 </html>
