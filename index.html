@@ -19,6 +19,8 @@
             <hr>
             <button v-on:click='increaseCounter'>Click me</button> <!--v-on has access to all default DOM events, not only click-->
             <p>{{ counter }}</p>
+            <hr>
+            <p v-on:mousemove='updateCoordinates'>Coordinates: {{ x }} / {{ y }}</p>
         </div>
         <script>
             new Vue ({
@@ -27,7 +29,9 @@
                     title: "Hello World!",
                     link: "http://google.com",
                     finishedLink: "<a href='http://google.com'>Google</a>",
-                    counter: 0
+                    counter: 0,
+                    x: 0,
+                    y: 0
                 },
                 methods: {
                     changeTitle: function(event) {
@@ -39,8 +43,11 @@
                     },
                     increaseCounter: function() {
                         this.counter++;
+                    },
+                    updateCoordinates: function(event) {
+                        this.x = event.clientX;
+                        this.y = event.clientY;
                     }
-                    
                 }
             });
         </script>
