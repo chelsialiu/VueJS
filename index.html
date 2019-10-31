@@ -121,6 +121,19 @@
                 <input type='text' v-model='color'>
             </div>
             <hr>
+
+            <p>DYNAMIC STYLING USING NAMES SETTING STYLES DYNAMICALLY (WITHOUT CSS CLASSES)</p>
+            We can can the CSS styling by using names setting styles dynamically with <i>:style</i> or by creating our own computed <i>myStyles</i> function. 
+            <div>
+                Enter the color of Box #1 and Box #2: <input type='text' v-model='color2' placeholder="Enter color">
+                <div class='demoBlock' :style='{backgroundColor: color2}'></div>
+                Enter the width of Box #2: <input type='text' v-model='width'>
+                <div class='demoBlock' :style='myStyle'></div>
+                
+                
+            </div>
+            <hr>
+
         </div>
     </body>
     <script>
@@ -139,7 +152,10 @@
                 y: 0,
                 name: 'Chelsia',
                 attachRed: false,
-                color: 'green'
+                color: 'green',
+                color2: 'gray',
+                width: 100
+
             },
             computed: {
               output: function() {
@@ -151,6 +167,12 @@
                     red: this.attachRed,
                     blue: !this.attachRed
                 }
+              },
+              myStyle: function() {
+                  return {
+                    backgroundColor: this.color2,
+                    width: this.width + 'px'
+                  }
               }
             },
             watch: {
