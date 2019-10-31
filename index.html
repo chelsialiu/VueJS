@@ -128,9 +128,9 @@
                 Enter the color of Box #1 and Box #2: <input type='text' v-model='color2' placeholder="Enter color">
                 <div class='demoBlock' :style='{backgroundColor: color2}'></div>
                 Enter the width of Box #2: <input type='text' v-model='width'>
-                <div class='demoBlock' :style='myStyle'></div>
-                
-                
+                <div class='demoBlock' :style='myStyle'></div> <br>
+                Box #3's heigh will change according to what you entered in for Box #2's width:
+                <div class='demoBlock' :style="[myStyle, {height: width + 'px'}]"></div>
             </div>
             <hr>
 
