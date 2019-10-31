@@ -100,17 +100,27 @@
             </div>
             <hr>
 
-            <p>REACTING TO CHANGES WITH COMPUTED PROPERTIES</p>
-            We can use the data <i>watch</i> object to watch the "counter" property and specify what code should execute when the value of "counter" changes.
-            For this exercise, we reset the counter to "0" every three seconds.
+            <p>DYNAMIC STYLING WITH CSS CLASSES</p>
+            We can change the CSS styling in various ways: 1. <i>Directly</i> through CSS classes, 2. <i>Using objects</i>, where the key is the CSS class and the value is 
+            the condition to attach the CSS class or not. 
+            <ul>
+                <li>Box #1: Click on it to change between red and blue</li>
+                <li>Box #2: This changes between red and gray, depending on what color of Box #1</li>
+                <li>Box #3: Type "red", "green", or "blue" in the text box to change the color. Sometimes, this box will also change color depending on what colors the other
+                    two boxes are
+                </li>
+            </ul>
             <div>
-                <div class='demoBlock' @click='attachRed = !attachRed' :class='{red: attachRed}'></div> <!--@click, Switching back and forth between red background; :class, links class-->
-                <div class='demoBlock'></div>
-                <div class='demoBlock'></div>
+                <!--@click='attachRed', Switching back and forth between red background; :class='{red: attachRed', links css class (red) and data variable (attachRed)-->
+                <div class='demoBlock' 
+                    @click='attachRed = !attachRed' 
+                    :class='divClasses'>
+                </div> 
+                <div class='demoBlock' :class='{red: attachRed}'></div>
+                <div class='demoBlock' :class='[color, {red: attachRed}]'></div>
+                <input type='text' v-model='color'>
             </div>
             <hr>
-
-
         </div>
     </body>
     <script>
@@ -128,13 +138,20 @@
                 x: 0,
                 y: 0,
                 name: 'Chelsia',
-                attachRed: false
+                attachRed: false,
+                color: 'green'
             },
             computed: {
               output: function() {
                   console.log("Computed");
                 return this.counter3 > 5 ? "Greater than 5" : "Less than 5";
-              }  
+              },
+              divClasses: function() { // Need to make this a computed function because it DEPENDS on the attachRed attribute
+                return {
+                    red: this.attachRed,
+                    blue: !this.attachRed
+                }
+              }
             },
             watch: {
                 counter4: function(value) {
