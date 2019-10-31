@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="vue.js"></script>
-        <!-- <link rel="stylesheet" href=""> -->
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <h1 style='text-align: center;'>Chelsia's VueJS Project -- Using VueJS to Interact with the DOM</h1>
@@ -100,6 +100,16 @@
             </div>
             <hr>
 
+            <p>REACTING TO CHANGES WITH COMPUTED PROPERTIES</p>
+            We can use the data <i>watch</i> object to watch the "counter" property and specify what code should execute when the value of "counter" changes.
+            For this exercise, we reset the counter to "0" every three seconds.
+            <div>
+                <div class='demoBlock' @click='attachRed = !attachRed' :class='{red: attachRed}'></div> <!--@click, Switching back and forth between red background; :class, links class-->
+                <div class='demoBlock'></div>
+                <div class='demoBlock'></div>
+            </div>
+            <hr>
+
 
         </div>
     </body>
@@ -117,7 +127,8 @@
                 counter4: 0,
                 x: 0,
                 y: 0,
-                name: 'Chelsia'
+                name: 'Chelsia',
+                attachRed: false
             },
             computed: {
               output: function() {
