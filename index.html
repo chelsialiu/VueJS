@@ -10,7 +10,7 @@
         <!-- <link rel="stylesheet" href=""> -->
     </head>
     <body>
-        <h1 style='text-align: center;'>Chelsia's VueJS Project</h1>
+        <h1 style='text-align: center;'>Chelsia's VueJS Project -- Using VueJS to Interact with the DOM</h1>
         <div id="app">
             <p>SIMPLE VUE.JS APPLICATION</p>
             The title will change according to what you type into the input box:
@@ -66,11 +66,26 @@
             <hr>
 
             <p>USING TWO-WAY BINDING</p>
-            As you type something into the input box, the data will also update and display:
+            With two-way binding, we can link attriubutes <i>(v-bind)</i> and also listen for events <i>(v-on></i>.
+            Here, you type something into the input box, the data will also update and display:
             <div>
                 <br>
                 <input type='text' v-model='name'>
                 <p>Data text: {{ name }}</p>
+            </div>
+            <hr>
+
+            <p>WRITING JAVASCRIPT CODE IN THE TEMPLATES</p>
+            In Vue.js, we can execute Javascript code by either writing a Vue <i>method</i> or by adding a Vue <i>computed property</i>. 
+            The "Increase" and "Decrease" buttons utilize the Vue <i>method</i>, and the "Increase Second" button utilitizes the Vue <i>computed property</i>.
+            Both are similar, but a <i>computed property</i> is stored/used as a property of the data objects and is cached, not recalculated.
+            <div>
+                <br>
+                <button v-on:click='counter2++'>Increase</button>
+                <button v-on:click='counter2--'>Decrease</button>
+                <button v-on:click='counter3++'>Increase Second</button>
+                <p>Counter (method): {{ counter2 }} | Counter (computed property): {{ counter3 }}</p>
+                <p>Result (method): {{ result() }} | Result (computed property): {{ output }}</p>
             </div>
             <hr>
 
@@ -86,9 +101,17 @@
                 link: "http://google.com",
                 finishedLink: "<a href='http://google.com' target='_blank'>Google</a>",
                 counter: 0,
+                counter2: 0,
+                counter3: 0,
                 x: 0,
                 y: 0,
                 name: 'Chelsia'
+            },
+            computed: { // 'output' can now be stored and used as a property of the data object, is CACHED and not recalculated
+              output: function() {
+                  console.log("Computed");
+                return this.counter3 > 5 ? "Greater than 5" : "Less than 5";
+              }  
             },
             methods: {
                 changeTitle: function(event) {
@@ -107,6 +130,10 @@
                 },
                 alertMe: function() {
                     alert('ALERT');
+                },
+                result: function() { // this is exectued EVERY time
+                    console.log("Method");
+                    return this.counter2 > 5 ? "Greater than 5" : "Less than 5";
                 }
             }
         });
