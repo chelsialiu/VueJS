@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+ <html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>VueJS - Chapter 3</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="vue.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body class='container'>
+        <h1 class='chapterHeader'>Chapter 3: Using Conditionals and Rendering</h1>
+        <div id="app">
+            <p>CONDITIONAL RENDERING WITH V-IF</p>
+            We can use the <i>v-if</i> directive to control the DOM display. 
+            <div class='exampleOutput'>
+                <p v-if='show'>You can see me!</p>
+                <p>Do you also see me?</p>
+                <button @click='show = !show'>Switch</button>
+            </div>
+            <hr>
+
+
+
+
+
+
+            <div class='prevNextButtonRow'>
+                <div></div><div></div>
+                <div>
+                    <h3 style='text-align: center;'>Previous: <br> Using VueJS to Interact with the DOM</h3>
+                    <a href='Chapter2.html' class='previousChapterButton center' title='Using VueJS to Interact with the DOM'><span>Chapter 2</a>
+                </div>
+                <div>
+                    <h3 style='text-align: center;'>Next: <br> First Course Project - The Monster Slayer</h3>
+                    <a href='Chapter4.html' class='nextChapterButton center' title='First Course Project - The Monster Slayer'><span>Chapter 4</a>
+                </div>
+                <div></div><div></div>
+            </div>
+           
+        </div>
+    </body>
+    <script>
+        new Vue ({
+            el: '#app',
+            data: {
+                show: true
+            }
+        });
+    </script>
+</html>

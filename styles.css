@@ -1,4 +1,71 @@
+/* ------- Media Queries ------- */
+@media screen and (min-width: 0px) {
+    body, .chapterHeader, .sectionHeader, .exampleOutput, .prevNextButtonRow {
+        width: 100%;
+        margin:0;
+    }
+}
+@media screen and (min-width: 480px) {
+    body, .chapterHeader, .sectionHeader, .exampleOutput, .prevNextButtonRow {
+        width: 460px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 720px) {
+    body, .chapterHeader, .sectionHeader, .exampleOutput, .prevNextButtonRow {
+        width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 960px) {
+    body, .chapterHeader, .sectionHeader, .exampleOutput, .prevNextButtonRow {
+        width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 1280px) {
+    body {
+        width: 1020px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 1600px) {
+    body {
+        width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 /* ------- Overall ------- */
+.body {
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.chapterHeader, .sectionHeader {
+    /* text-align: center; */
+    margin-left: 200px;
+}
+.exampleOutput {
+    display: block;
+    background-color:  #F08080;
+    border: solid 1.5px gray;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    /* width: 700px; */
+}
+.prevNextButtonRow {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
 .previousChapterButton {
     border-radius: 4px;
     background: linear-gradient(to left, #ed3330, #e4726e) !important;
@@ -35,7 +102,6 @@
     opacity: 1;
     left: 0;
  }
-
 .nextChapterButton {
    border-radius: 4px;
    background: linear-gradient(to right, #ed3330, #e4726e) !important;
@@ -72,12 +138,6 @@
    right: 0;
 }
 
-.prevNextButtonRow {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 10px;
-}
-
 /* ------- Index Page ------- */
 .content {
     margin-left: 400px; 
@@ -89,13 +149,11 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 .buttonRow {
     display: flex;
     justify-content: center;
     padding: 10px;
 }
-
 .chapterButton {
     color: #fff !important;
     text-transform: uppercase;
@@ -109,7 +167,6 @@
     margin-left: 10px;
     margin-right: 10px;
 }
-
 .chapterButton:hover {
     text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -126,15 +183,12 @@
     display: inline-block;
     margin: 10px;
 }
-
 .red {
     background-color: red;
 }
-
 .green {
     background-color: green;
 }
-
 .blue {
     background-color: blue;
 }
