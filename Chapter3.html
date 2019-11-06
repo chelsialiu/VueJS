@@ -44,6 +44,22 @@
             </div>
             <hr>
 
+            <div class='sectionHeader'>
+                    <p>DON'T DETACH IT WITH V-SHOW</p>
+                    We know that <i>v-if</i> attaches and detaches elements to and from the DOM. However, sometimes this is not desired behavior and we might only want to "hide" an element.
+                    For that, we can use <i>v-show</i> instead, which just sets the CSS display property to "none" rather than removing the element from the DOM.
+                </div>
+                <div class='exampleOutput'>
+                    <template v-if='show3'>
+                        <h4>Heading for a template</h4>
+                        <p>Inside a template</p>
+                    </template>
+                    <p v-else>Now you see me!</p>
+                    <p v-show='show3'>Do you also see me?</p>
+                    <button @click='show3 = !show3'>Switch</button>
+                </div>
+                <hr>
+
 
 
 
@@ -70,6 +86,7 @@
             data: {
                 show: true,
                 show2: true,
+                show3: true,
             }
         });
     </script>
