@@ -1,3 +1,117 @@
+/* ------- Overall ------- */
+/* .previousChapterButton {
+    border-radius: 4px;
+    background: linear-gradient(to left, #ed3330, #e4726e) !important;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 22px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.4s;
+    cursor: pointer;
+    margin: 5px;
+ }
+ .previousChapterButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+ }
+ .previousChapterButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+ }
+ .previousChapterButton:hover span {
+     padding-right: 25px;
+ }
+ .previousChapterButton:hover span:before {
+    opacity: 1;
+    right: 0;
+ } */
+
+.nextChapterButton {
+   border-radius: 4px;
+   background: linear-gradient(to right, #ed3330, #e4726e) !important;
+   border: none;
+   color: #FFFFFF;
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 22px;
+   padding: 20px;
+   width: 200px;
+   transition: all 0.4s;
+   cursor: pointer;
+   margin: 5px;
+}
+.nextChapterButton span {
+   cursor: pointer;
+   display: inline-block;
+   position: relative;
+   transition: 0.4s;
+}
+.nextChapterButton span:after {
+   content: '\00bb';
+   position: absolute;
+   opacity: 0;
+   top: 0;
+   right: -20px;
+   transition: 0.5s;
+}
+.nextChapterButton:hover span {
+    padding-right: 25px;
+}
+.nextChapterButton:hover span:after {
+   opacity: 1;
+   right: 0;
+}
+
+/* ------- Index Page ------- */
+.content {
+    margin-left: 400px; 
+    margin-right: 400px; 
+    text-align:center;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttonRow {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.chapterButton {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ed3330;
+    padding: 20px;
+    border-radius: 50px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.chapterButton:hover {
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    cursor: pointer;
+}
+
+/* ------- Chapter 2 ------- */
 .demoBlock {
     width: 100px;
     height: 100px;
