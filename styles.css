@@ -46,9 +46,16 @@
     margin-left: 200px;
     margin-right: 200px;
 }
+.chapterHeader {
+    margin-top: 25px;
+    text-align: center;
+}
 .chapterHeader, .sectionHeader {
-    /* text-align: center; */
-    margin-left: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sectionHeader p {
+    font-weight: bold;
 }
 .exampleOutput {
     display: block;

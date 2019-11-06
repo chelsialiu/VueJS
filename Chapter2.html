@@ -24,28 +24,39 @@
             </div>
             <hr>
 
-            <p>ACCESSING DATA IN THE VUE INSTANCE</p>
-            We can access and display data from our Vue instance in our HTML code:
+
+            <div class='sectionHeader'>
+                <p>ACCESSING DATA IN THE VUE INSTANCE</p>
+                We can access and display data from our Vue instance in our HTML code:
+            </div>
             <p class='exampleOutput'>{{ sayHello() }}</p>
             <hr>
 
-            <p>BINDING TO ATTRIBUTES</p>
-            We can use the directive <i>v-bind</i> to bind data from our Vue instance to the HTML attributes:
+            <div class='sectionHeader'>
+                <p>BINDING TO ATTRIBUTES</p>
+                We can use the directive <i>v-bind</i> to bind data from our Vue instance to the HTML attributes:
+            </div>
             <p class='exampleOutput'><a v-bind:href='link' target='_blank'>Google</a></p>
             <hr>
 
-            <p>DISABLE RE-RENDERING</p>
-            We can use the directive <i>v-once</i> to display the original value of a Vue instance attribute instead of the overwritten value (which might have occurred previously):
+            <div class='sectionHeader'>
+                <p>DISABLE RE-RENDERING</p>
+                We can use the directive <i>v-once</i> to display the original value of a Vue instance attribute instead of the overwritten value (which might have occurred previously):
+            </div>
             <p class='exampleOutput'v-once>This is the original title: {{ title }}</p>
             <hr>
 
-            <p>HOW TO OUTPUT RAW HTML</p>
-            We can use the directive <i>v-html</i> to say render HTML code and not escape it: 
+            <div class='sectionHeader'>
+                <p>HOW TO OUTPUT RAW HTML</p>
+                We can use the directive <i>v-html</i> to say render HTML code and not escape it: 
+            </div>
             <p class='exampleOutput'v-html='finishedLink'></p>
             <hr>
 
-            <p>LISTENING TO EVENTS</p>
-            We can use the directive <i>v-on</i> to listen to events and respond in a certain way. This "Click Me" button utilitizes <i>v-on:click</i>, which is similar to  JS onclick function:
+            <div class='sectionHeader'>
+                <p>LISTENING TO EVENTS</p>
+                We can use the directive <i>v-on</i> to listen to events and respond in a certain way. This "Click Me" button utilitizes <i>v-on:click</i>, which is similar to  JS onclick function:
+            </div>
             <div class='exampleOutput'>
                 <br>
                 <button v-on:click='increaseCounter'>Click me</button> <!--v-on has access to all default DOM events, not only click-->
@@ -53,26 +64,32 @@
             </div>
             <hr>
 
-            <p>GETTING EVENT DATA FROM THE EVENT OBJECT</p>
-            <p>We can access and use event data from the event object. Here, we are accessing the updateCoordinates function and displaying the coordinates of the computer mouse on the screen.</p>
-            <p>We can also modify and event (such as stopping propagation), and change certain attributes. In this case, we create a "Dead Spot" where the coordinates stop updating:</p>
+            <div class='sectionHeader'>
+                <p>GETTING EVENT DATA FROM THE EVENT OBJECT</p>
+                We can access and use event data from the event object. Here, we are accessing the updateCoordinates function and displaying the coordinates of the computer mouse on the screen.
+                We can also modify and event (such as stopping propagation), and change certain attributes. In this case, we create a "Dead Spot" where the coordinates stop updating:
+            </div>
             <p class='exampleOutput' v-on:mousemove='updateCoordinates'>
                 Coordinates: {{ x }} / {{ y }}
                 - <span v-on:mousemove.stop=''>DEAD SPOT</span>
             </p>
             <hr>
 
-            <p>KEYBOARD EVENTS</p>
-            We can add key modifiers for v-on when listening for key events.
-            <p>By using <i>v-on:keyup.enter.space</i>, an alert box will pop up if you hit "Enter" or "Space" on the keyboard:</p>
+            <div class='sectionHeader'>
+                <p>KEYBOARD EVENTS</p>
+                We can add key modifiers for v-on when listening for key events.
+                By using <i>v-on:keyup.enter.space</i>, an alert box will pop up if you hit "Enter" or "Space" on the keyboard:
+            </div>
             <div class='exampleOutput'>
                 <input type='text' v-on:keyup.enter.space='alertMe'> <!--Alert will pop up when 'Enter' or 'Space' are hit on the keyboard-->
             </div>
             <hr>
 
-            <p>USING TWO-WAY BINDING</p>
-            With two-way binding, we can link attriubutes <i>(v-bind)</i> and also listen for events <i>(v-on></i>.
-            Here, you type something into the input box, the data will also update and display:
+            <div class='sectionHeader'>
+                <p>USING TWO-WAY BINDING</p>
+                With two-way binding, we can link attriubutes <i>(v-bind)</i> and also listen for events <i>(v-on></i>.
+                Here, you type something into the input box, the data will also update and display:
+            </div>
             <div class='exampleOutput'>
                 <br>
                 <input type='text' v-model='name'>
@@ -80,10 +97,12 @@
             </div>
             <hr>
 
-            <p>WRITING JAVASCRIPT CODE IN THE TEMPLATES</p>
-            In Vue.js, we can execute Javascript code by either writing a Vue <i>method</i> or by adding a Vue <i>computed property</i>. 
-            The "Increase" and "Decrease" buttons utilize the Vue <i>method</i>, and the "Increase Second" button utilitizes the Vue <i>computed property</i>.
-            Both are similar, but a <i>computed property</i> is stored/used as a property of the data objects and is cached, not recalculated.
+            <div class='sectionHeader'>
+                <p>WRITING JAVASCRIPT CODE IN THE TEMPLATES</p>
+                In Vue.js, we can execute Javascript code by either writing a Vue <i>method</i> or by adding a Vue <i>computed property</i>. 
+                The "Increase" and "Decrease" buttons utilize the Vue <i>method</i>, and the "Increase Second" button utilitizes the Vue <i>computed property</i>.
+                Both are similar, but a <i>computed property</i> is stored/used as a property of the data objects and is cached, not recalculated.
+            </div>
             <div class='exampleOutput'>
                 <br>
                 <button v-on:click='counter2++'>Increase</button>
@@ -94,9 +113,11 @@
             </div>
             <hr>
 
-            <p>REACTING TO CHANGES WITH COMPUTED PROPERTIES</p>
-            We can use the data <i>watch</i> object to watch the "counter" property and specify what code should execute when the value of "counter" changes.
-            For this exercise, we reset the counter to "0" every three seconds.
+            <div class='sectionHeader'>
+                <p>REACTING TO CHANGES WITH COMPUTED PROPERTIES</p>
+                We can use the data <i>watch</i> object to watch the "counter" property and specify what code should execute when the value of "counter" changes.
+                For this exercise, we reset the counter to "0" every three seconds.
+            </div>
             <div class='exampleOutput'>
                 <br>
                 <button v-on:click='counter4++'>Increase</button>
@@ -105,9 +126,11 @@
             </div>
             <hr>
 
-            <p>DYNAMIC STYLING WITH CSS CLASSES</p>
-            We can change the CSS styling in various ways: 1. <i>Directly</i> through CSS classes, 2. <i>Using objects</i>, where the key is the CSS class and the value is 
-            the condition to attach the CSS class or not. 
+            <div class='sectionHeader'>
+                <p>DYNAMIC STYLING WITH CSS CLASSES</p>
+                We can change the CSS styling in various ways: 1. <i>Directly</i> through CSS classes, 2. <i>Using objects</i>, where the key is the CSS class and the value is 
+                the condition to attach the CSS class or not.
+            </div>
             <div class='exampleOutput'>
                 <ul>
                     <li>Box #1: Click on it to change between red and blue</li>
@@ -128,9 +151,11 @@
             </div>
             <hr>
 
-            <p>DYNAMIC STYLING USING NAMES SETTING STYLES DYNAMICALLY (WITHOUT CSS CLASSES)</p>
-            We can can the CSS styling by using names setting styles dynamically with <i>:style</i> or by creating our own computed <i>myStyles</i> function. These styles can also
-            be stored in an array, which is how Box #3's styles are set up.
+            <div class='sectionHeader'>
+                <p>DYNAMIC STYLING USING NAMES SETTING STYLES DYNAMICALLY (WITHOUT CSS CLASSES)</p>
+                We can can the CSS styling by using names setting styles dynamically with <i>:style</i> or by creating our own computed <i>myStyles</i> function. These styles can also
+                be stored in an array, which is how Box #3's styles are set up.
+            </div>
             <div class='exampleOutput'>
                 Enter the color of Box #1 and Box #2: <input type='text' v-model='color2' placeholder="Enter color">
                 <div class='demoBlock' :style='{backgroundColor: color2}'></div><br>
