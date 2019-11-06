@@ -1,5 +1,5 @@
 /* ------- Overall ------- */
-/* .previousChapterButton {
+.previousChapterButton {
     border-radius: 4px;
     background: linear-gradient(to left, #ed3330, #e4726e) !important;
     border: none;
@@ -12,6 +12,7 @@
     transition: all 0.4s;
     cursor: pointer;
     margin: 5px;
+    margin-left: 100px;
  }
  .previousChapterButton span {
     cursor: pointer;
@@ -19,21 +20,21 @@
     position: relative;
     transition: 0.4s;
  }
- .previousChapterButton span:after {
-    content: '\00bb';
+ .previousChapterButton span:before {
+    content: '\00ab';
     position: absolute;
     opacity: 0;
     top: 0;
-    right: -20px;
+    left: -20px;
     transition: 0.5s;
  }
  .previousChapterButton:hover span {
-     padding-right: 25px;
+     padding-left: 25px;
  }
  .previousChapterButton:hover span:before {
     opacity: 1;
-    right: 0;
- } */
+    left: 0;
+ }
 
 .nextChapterButton {
    border-radius: 4px;
@@ -69,6 +70,12 @@
 .nextChapterButton:hover span:after {
    opacity: 1;
    right: 0;
+}
+
+.prevNextButtonRow {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
 }
 
 /* ------- Index Page ------- */
