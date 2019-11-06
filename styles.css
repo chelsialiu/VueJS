@@ -49,6 +49,7 @@
 .chapterHeader {
     margin-top: 25px;
     text-align: center;
+    padding-bottom: 20px;
 }
 .chapterHeader, .sectionHeader {
     margin-left: auto;

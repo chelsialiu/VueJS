@@ -9,15 +9,38 @@
         <script src="vue.js"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
-    <body class='container'>
+    <body>
         <h1 class='chapterHeader'>Chapter 3: Using Conditionals and Rendering</h1>
         <div id="app">
-            <p>CONDITIONAL RENDERING WITH V-IF</p>
-            We can use the <i>v-if</i> directive to control the DOM display. 
+            <div class='sectionHeader'>
+                <p>CONDITIONAL RENDERING WITH V-IF</p>
+                We can use the <i>v-if</i> directive to control the DOM display. One important thing to note is that <i>v-if</i>  literally <i>attaches</i> and <i>detaches</i> 
+                elements (and its nested elements too) in the DOM. This means that elements are not merely <i>hidden</i>; they are <i>removed entirely.</i> The <i>v-else</i> directive will be referred to
+                the latest <i>v-if</i> in front of it. <br><br>
+                In this example, if the statement "You can see me!" is visible, then show = true. Once the "Switch" button is clicked, show = false and the statement "Now you see me!" appears
+                instead.
+            </div>
             <div class='exampleOutput'>
                 <p v-if='show'>You can see me!</p>
+                <p v-else>Now you see me!</p>
                 <p>Do you also see me?</p>
                 <button @click='show = !show'>Switch</button>
+            </div>
+            <hr>
+
+            <div class='sectionHeader'>
+                <p>USING AN ALTERNATIVE V-IF SYNTAX</p>
+                We can use the <i>v-if</i> directive inside of a <i>template</i> tag to group multiple elements that we want to attach or detach with <i>v-if</i>. This is easier than
+                putting <i>v-if</i> for each individual element.
+            </div>
+            <div class='exampleOutput'>
+                <template v-if='show2'>
+                    <h4>Heading for a template</h4>
+                    <p>Inside a template</p>
+                </template>
+                <p v-else>Now you see me!</p>
+                <p>Do you also see me?</p>
+                <button @click='show2 = !show2'>Switch</button>
             </div>
             <hr>
 
@@ -45,7 +68,8 @@
         new Vue ({
             el: '#app',
             data: {
-                show: true
+                show: true,
+                show2: true,
             }
         });
     </script>
