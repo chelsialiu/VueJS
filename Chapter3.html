@@ -83,6 +83,19 @@
             </div>
             <hr>
 
+            <div class='sectionHeader'>
+                <p>USING AN ALTERNATIVE V-FOR SYNTAX</p>
+                Similar to how we used a <i>template</i> tag to group elements together to apply a Vue JS directive, we can use a <i>template</i> tag and loop through elements
+                using <i>v-for</i>.
+            </div>
+            <div class='exampleOutput'>
+                <template v-for='(ingredient, index) in ingredients'>
+                    <h3>{{ ingredient }}</h3>
+                    <p>{{ index }}</p>
+                </template>
+            </div>
+            <hr>
+
 
 
 
