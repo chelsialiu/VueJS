@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monster Slayer</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+    <h1 class='text-center'>Chapter 4: First Course Project - The Monster Slayer</h1>
+    <section class="row">
+        <div class="small-6 columns">
+            <h1 class="text-center">YOU</h1>
+            <div class="healthbar">
+                <div 
+                    class="healthbar text-center" 
+                    style="background-color: green; margin: 0; color: white;"
+                    :style="{width: playerHealth + '%'}"> <!--Have to specify % or else it will think it is px-->
+                    {{ playerHealth }}
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <h1 class="text-center">MONSTER</h1>
+            <div class="healthbar">
+                <div 
+                    class="healthbar text-center" 
+                    style="background-color: green; margin: 0; color: white;"
+                    :style="{width: monsterHealth + '%'}"> <!--Have to specify % or else it will think it is px-->
+                    {{ monsterHealth }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row controls" v-show='!gameIsRunning'>
+        <div class="small-12 columns">
+            <button id="start-game" @click='startNewGame()'>START NEW GAME</button>
+        </div>
+    </section>
+    <section class="row controls" v-show='gameIsRunning'>
+        <div class="small-12 columns">
+            <button id="attack" @click='attack'>ATTACK</button>
+            <button id="special-attack" @click='specialAttack'>SPECIAL ATTACK</button>
+            <button id="heal" @click='heal'>HEAL</button>
+            <button id="give-up" @click='giveUp'>GIVE UP</button>
+        </div>
+    </section>
+    <section class="row log" v-show='gameIsRunning' v-if='actionsLog.length > 0'>
+        <div class="small-12 columns">
+            <ul>
+                <li v-for='action in actionsLog' :class="{'player-turn': action.isPlayer, 'monster-turn': !action.isPlayer}">{{ action.text }}</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- <div class='prevNextButtonRow'>
+        <div></div><div></div>
+        <div>
+            <h3 style='text-align: center;'>Previous: <br> Using VueJS to Interact with the DOM</h3>
+            <a href='Chapter2.html' class='previousChapterButton center' title='Using VueJS to Interact with the DOM'><span>Chapter 2</a>
+        </div>
+        <div>
+            <h3 style='text-align: center;'>Next: <br> First Course Project - The Monster Slayer</h3>
+            <a href='Chapter4.html' class='nextChapterButton center' title='First Course Project - The Monster Slayer'><span>Chapter 4</a>
+        </div>
+        <div></div><div></div>
+    </div> -->
+</div>
+</body>
+<script src='app.js'></script>
+</html>
