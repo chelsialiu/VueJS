@@ -121,9 +121,24 @@
             </div>
             <hr>
 
+            <div class='sectionHeader'>
+                <p>KEEPING TRACK OF ELEMENTS WHEN USING V-FOR</p>
+                We can also use <i>v-bind:key</i> to be safe in having Vue JS store both the <i>position of the element</i> and also the <i>element itself</i>. 
+                In the case where we might have to reorder the elements or something like that, it will take the <i>actual element</i> and reorder it and not just override the 
+                values inside of the position it finds in the array. Be sure to assign a <i>key</i> to avoid updating the incorrect values in other arrays or objects.
+            </div>
+            <div class='exampleOutput'>
+                <ul>
+                    <li v-for='(ingredient, index) in ingredients2' :key='ingredient'>{{ ingredient }} ({{ index }})</li>
+                </ul>
+                <button @click='ingredients2.push("Spices")'>Add New Ingredient</button>
+            </div>
+            <hr>
 
 
 
+
+            
             <div class='prevNextButtonRow'>
                 <div></div><div></div>
                 <div>
@@ -147,6 +162,7 @@
                 show2: true,
                 show3: true,
                 ingredients: ['Meat', 'Fruit', 'Cookies'],
+                ingredients2: ['Meat', 'Fruit', 'Cookies'],
                 persons: [
                     {Name: 'Max', Age: 27, Color: 'Red'},
                     {Name: 'Chels', Age: 'Unknown', Color: 'blue'}
