@@ -70,6 +70,18 @@
                 </ul>
             </div>
             <hr>
+            
+            <div class='sectionHeader'>
+                <p>GETTING THE CURRENT INDEX</p>
+                We can also access the index of a item in an array by specifiying it in the <i>v-for</i> loop. For example, <i>v-for='(ingredient, index) in ingredients'</i>.
+                The order DOES MATTER, with the <i>name</i> of the item <i>first</i> and the <i>index</i> of the element <i>second</i>.
+            </div>
+            <div class='exampleOutput'>
+                <ul>
+                    <li v-for='(ingredient, index) in ingredients'>{{ ingredient }} ({{ index }})</li>
+                </ul>
+            </div>
+            <hr>
 
 
 
