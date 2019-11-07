@@ -96,7 +96,21 @@
             </div>
             <hr>
 
-
+            <div class='sectionHeader'>
+                <p>LOOPING THROUGH OBJECTS</p>
+                We can also use <i>v-for</i> to loop through objects and their properties. Just as the order is important for properties in an array, the order is also important
+                when looping through objects with <i>v-for</i>. For example, <i>v-for='(propValue, propKey) in person'</i> where the <i>first</i> property is the <i>value</i> and the 
+                <i>second</i> property is the <i>key name</i> of the object.
+            </div>
+            <div class='exampleOutput'>
+                Show all properties for the person:
+                <ul>
+                    <li v-for='person in persons'>
+                        <div v-for='(propValue, propKey, index) in person'>{{ propKey }}: {{ propValue }} ({{ index }})</div><br>
+                    </li>
+                </ul>
+            </div>
+            <hr>
 
 
 
@@ -125,8 +139,8 @@
                 show3: true,
                 ingredients: ['Meat', 'Fruit', 'Cookies'],
                 persons: [
-                    {name: 'Max', age: 27, color: 'Red'},
-                    {name: 'Chels', age: 'Unknown', color: 'blue'}
+                    {Name: 'Max', Age: 27, Color: 'Red'},
+                    {Name: 'Chels', Age: 'Unknown', Color: 'blue'}
                 ]
             }
         });
